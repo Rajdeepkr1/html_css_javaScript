@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task To Do</title>
+    <link href="https://fonts.googleapis.com/css2?family=Carattere&family=Cinzel:wght@500&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div class="header">Add_Your_Daily_Task</div>
+      <div class="field">
+        <input id="inputTask" type="text" placeholder="Add Your ToDo's.. ...." />
+        <button id="add">Add_new</button>
+      </div>
+      <div id="alltask">
+        <strong>
+        <pre class="todos" > >>>>>>>>> List of Your Todo task <<<<<<<<< </pre>
+      </strong>
+      </div>
+    </div>
+  </body>
+  <script>
+    let InputTask = document.getElementById("inputTask");
+    let AddTask = document.getElementById("add");
+    let YourTask = document.getElementById("alltask");
+
+    AddTask.addEventListener("click", () => {
+      let newtask = document.createElement("span");
+      let Deltask = document.createElement("div");
+      newtask.id = "yourtask";
+      Deltask.id = "delete";
+      Deltask.innerHTML = `<i class="fas fa-trash-alt"></i>`;
+      newtask.innerText = InputTask.value;
+      YourTask.appendChild(newtask);
+      newtask.appendChild(Deltask);
+      InputTask.value = " ";
+      newtask.addEventListener("click", () => {
+        newtask.style.textDecoration = " line-through";
+      });
+
+      Deltask.addEventListener("click", () => {
+        YourTask.removeChild(newtask);
+      });
+    });
+  </script>
+</html>

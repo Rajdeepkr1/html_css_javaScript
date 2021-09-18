@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palindrome</title>
+    <style>
+      .header {
+        background: rgb(51, 58, 51);
+        padding: 10px;
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+        font-size: 50px;
+        font-family: "Noto Serif", serif;
+        font-weight: 600;
+        border-radius: 5px;
+        border-style: none;
+        color: white;
+      }
+      .field {
+        padding: 2em 5em;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+        border: 2px solid rgb(80, 143, 134);
+        border-radius: 5px;
+      }
+      #inputTask {
+        width: 60%;
+        margin: 0px 10px;
+        padding: 10px 30px;
+        border-radius: 5px;
+        border-bottom: 2px solid red;
+      }
+      #add {
+        margin: 5px 2px;
+        width: 10%;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border-bottom: 2px solid red;
+      }
+      #alltask {
+        width: 60%;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+        border-radius: 5px;
+      }
+      #yourtask{
+          color: rgb(41, 1, 1);
+          font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">Palindrome String</div>
+    <div class="field">
+      <input id="inputTask" type="text" placeholder="Enter A String.. ...." />
+      <button id="add">Add</button>
+
+      <div id="alltask"></div>
+    </div>
+  </body>
+  <script>
+    let InputTask = document.getElementById("inputTask");
+    let AddTask = document.getElementById("add");
+    let YourTask = document.getElementById("alltask");
+
+    AddTask.addEventListener("click", () => {
+      let newtask = document.createElement("div");
+
+      newtask.id = "yourtask";
+       
+
+        let value = InputTask.value;
+         let arr = value.split("")
+        let revstr =  arr.reverse().join("");
+       // console.log(revstr)
+
+      newtask.innerText = revstr;
+      YourTask.appendChild(newtask);
+    });
+  </script>
+</html>

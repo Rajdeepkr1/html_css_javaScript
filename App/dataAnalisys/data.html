@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataAnalisys</title>
+  </head>
+  <body>
+    <div class="data">
+      <pre>
+            [{firstName:"Tirth", lastName:"shah", age:23},
+             {firstName:"Abhishek", lastName:"pathak", age:25}, 
+             {firstName:"Riya", lastName:"patel", age:24},
+             {firstName:"Bhala", lastName:"batuk", age:18},
+             {firstName:"Khalnayak", lastName:"Kalia", age:24}]
+                Use the above array of objects & write a code that answers following questions. 
+                Write code that consoles fullname of students whose age is greater than equal to 24. 
+
+
+                         
+                let arr = [{firstName:"Tirth", lastName:"shah", age:23},
+                {firstName:"Abhishek", lastName:"pathak", age:25}, 
+                {firstName:"Riya", lastName:"patel", age:24},
+                {firstName:"Bhala", lastName:"batuk", age:18},
+                {firstName:"Khalnayak", lastName:"Kalia", age:24}]
+   
+   
+                   let allname =  document.getElementById("name");
+                    arr.forEach((ele)=>{
+                    let ageVal=ele.age;
+                   
+                   if(ageVal>=24){
+                      let NAmes=`${ele.firstName} ${ele.lastName}`
+                      console.log(NAmes)
+                   }
+                   
+                })
+
+
+        </pre>
+        <div id="name"></div>
+    </div>
+    <script>
+        let arr = [{firstName:"Tirth", lastName:"shah", age:23},
+             {firstName:"Abhishek", lastName:"pathak", age:25}, 
+             {firstName:"Riya", lastName:"patel", age:24},
+             {firstName:"Bhala", lastName:"batuk", age:18},
+             {firstName:"Khalnayak", lastName:"Kalia", age:24}]
+
+
+                let allname =  document.getElementById("name");
+  
+             arr.forEach((ele)=>{
+                 let ageVal=ele.age;
+                // allname.innerText=age;
+                if(ageVal>=24){
+                   let NAmes=`${ele.firstName} ${ele.lastName}`
+                   console.log(NAmes)
+                }
+                
+             })
+
+             
+             
+    </script>
+  </body>
+</html>
