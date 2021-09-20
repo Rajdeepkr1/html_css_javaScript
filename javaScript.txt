@@ -1,0 +1,1200 @@
+>>>>>>>>>>  Topic 1 : Basic JS  <<<<<<<<<<
+
+1 > What are the pros and cons of for loop ?
+Ans >
+   Pros:
+    In a for loop, the index of iteration is always a clearly defined variable. By common practice,
+    the variable is usually the letter i. ...
+    For loops can easily be used to iterate through elements of multidimensional arrays using nested for loops.
+    By common practice, the next loop would use the variable j, then k, etc.
+
+    var len=arr.length;
+    for(var i=0; i<len; i++){
+	var value = arr[i];
+	alert(i =") "+value);
+    }
+
+   Cons:
+     The problem is that javascript has to look up the length of the array on every iteration. 
+     This will slow down your script a bit. But the speed difference is not noticeable in most cases.
+     If you want to notice the difference, run the loop a couple of thousand times.
+
+2 > Is JavaScript a compiled or interpreted language ?
+Ans >
+    JavaScript is an interpreted language, not a compiled language.
+    A program such as C++ or Java needs to be compiled before it is run. ...
+    In contrast, JavaScript has no compilation step. Instead, 
+    an interpreter in the browser reads over the JavaScript code, interprets each line, and runs it.  
+
+3 > Is JavaScript a case-sensitive language ?
+Ans >
+    JavaScript is a case-sensitive language. This means that language keywords, variables, function names,
+    and any other identifiers must always be typed with a consistent capitalization of letters.
+
+4 > What is the difference between == and === operators ?
+Ans >
+    = is used for assigning values to a variable in JavaScript.
+    == is used for comparison between two variables irrespective of the datatype of variable.
+    === is used for comparision between two variables but this will check strict type,
+    which means it will check datatype and compare two values
+
+5 > What is the use of preventDefault method ?
+Ans >
+    The preventDefault() method is used to prevent the browser from executing the default action of the selected element. 
+    It can prevent the user from processing the request by clicking the link.
+    Parameters: It does not accept any parameter.
+
+6 > Why is JavaScript treated as Single threaded ?
+Ans > 
+    JavaScript is a single-threaded language because while running code on a single thread,
+     it can be really easy to implement as we don't have to deal with the complicated scenarios that 
+     arise in the multi-threaded environment like deadlock. 
+     Since, JavaScript is a single-threaded language, it is synchronous in nature.
+
+7 > What is ECMAScript ?
+Ans >
+    ECMAScript is a Standard for a scripting languages.
+    Languages like Javascript are based on the ECMAScript standard.
+    ECMA Standard is based on several originating technologies, 
+    the most well known being JavaScript (Netscape) and JScript (Microsoft).
+    ECMA means European Computer Manufacturer’s Association
+
+8 > What is eval ?
+Ans >
+    The eval() function in JavaScript is used to evaluate the expression. 
+    It is JavaScirpt's global function, which evaluates the specified string as JavaScript code and executes it.
+    The parameter of the eval() function is a string. If the parameter represents the statements,
+    eval() evaluates the statements. If the parameter is an expression, eval() evaluates the expression. 
+    If the parameter of eval() is not a string, the function returns the parameter unchanged.
+    There are some limitations of using the eval() function,
+    such as the eval() function is not recommended to use because of the security reasons.
+    It is not suggested to use because it is slower and makes code unreadable.
+
+    var a = 10, b = 20, c = 30, sum, mul, sub;  
+    sum = eval(" a + b + c ");  
+    mul = eval(" a  * b * c");  
+    sub = eval(" a  - b");
+
+9 > How do you display the current date in javascript ?
+Ans >
+    Use new Date() to generate a new Date object containing the current date and time.
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = mm + '/' + dd + '/' + yyyy;
+    document.write(today);
+
+    The new Date.prototype.toLocaleDateString() method is a more flexible solution.
+    It's a part of JavaScript since ECMAScript 5.1 and is well-supported by evergreen browsers
+
+10 >  How do you compare two date objects ?
+Ans >
+    In JavaScript, we can compare two dates by converting them into numeric value to corresponding to its time.
+    First, we can convert the Date into a numeric value by using getTime() function. 
+    By converting the given dates into numeric value we can directly compare them.
+
+    var g1 = new Date();
+    var g2 = new Date();
+    if (g1.getTime() === g2.getTime())
+        document.write("Both  are equal");
+    else
+        document.write("Not equal");
+
+11 > What are break and continue statements ?
+Ans >
+    The one-token statements continue and break may be used within loops to alter control flow; 
+    continue causes the next iteration of the loop to run immediately, 
+    whereas break terminates the loop and causes execution to resume after the loop. 
+    Both control structures must appear in loops. Both break and continue scope to the most deeply nested loop, 
+    but pass through non-loop statements.
+    When a break statement is executed, the most deeply nested loop currently being executed is ended 
+    and execution picks up with the next statement after the loop. For example, consider the following program:
+
+    while (1) {
+      if (n < 0) break;
+      foo(n);
+      n = n - 1;
+    }
+
+    The continue statement ends the current operation of the loop and returns to the condition at the top of the loop. 
+    Such loops are typically used to exclude some values from calculations. 
+    For example, we could use the following loop to sum the positive values in the array x,
+
+    sum = 0;
+    for (n in 1:size(x)) {
+      if (x[n] <= 0) continue;
+      sum += x[n];
+    }
+
+12 > What is a conditional operator in javascript ?
+Ans >
+    The conditional (ternary) operator is the only JavaScript operator that takes 
+    three operands: a condition followed by a question mark (?), then an expression to 
+    execute if the condition is truthy followed by a colon (:), and finally 
+    the expression to execute if the condition is falsy. 
+    This operator is frequently used as a shortcut for the if statement.
+
+    The ternary operator is right-associative, which means it can be "chained" in the following way, 
+    similar to an if … else if … else if … else chain:
+
+    function example(…) {
+    return condition1 ? value1
+         : condition2 ? value2
+         : condition3 ? value3
+         : value4;
+    }
+
+    // Equivalent to:
+
+    function example(…) {
+    if (condition1) { return value1; }
+    else if (condition2) { return value2; }
+    else if (condition3) { return value3; }
+    else { return value4; }
+    }
+
+13 > What are various operators supported by javascript ?
+Ans > 
+    JavaScript includes following categories of operators.
+    Arithmetic Operators
+    Comparison Operators
+    Logical Operators
+    Assignment Operators
+    Conditional Operators
+    Ternary Operator            
+
+14 > What is the purpose of switch-case ?
+Ans >
+    A switch statement first evaluates its expression. It then looks for the first case clause 
+    whose expression evaluates to the same value as the result of the input 
+    expression (using the strict comparison, ===) and transfers control to that clause, 
+    executing the associated statements. (If multiple cases match the provided value, 
+    the first case that matches is selected, even if the cases are not equal to each other.)
+
+    If no matching case clause is found, 
+    the program looks for the optional default clause, and if found, transfers control to that clause, 
+    executing the associated statements. If no default clause is found, the program continues execution 
+    at the statement following the end of switch. By convention, the default clause is the last clause, 
+    but it does not need to be so     
+
+15 > What are primitive data types ?
+Ans >
+    In JavaScript, a primitive (primitive value, primitive data type) is data 
+    that is not an object and has no methods. 
+    There are 7 primitive data types: string, number, bigint, boolean, undefined, symbol, and null. 
+
+16 > What are the two types of loops in javascript ?
+Ans >
+    JavaScript supports different kinds of loops:
+    for - loops through a block of code a number of times.
+    for/in - loops through the properties of an object.
+    for/of - loops through the values of an iterable object.
+    while - loops through a block of code while a specified condition is true.   
+
+17 > What is a comma operator ?
+Ans >
+    This operator mainly evaluates its operands from left to right sequentially and returns 
+    the value of the rightmost operand. A comma operator is used as a separator for multiple expressions 
+    at a place that requires a single expression. 
+    When a comma operator is placed in an expression, 
+    it executes each expression and returns the rightmost expression. 
+
+    function x() {
+        document.write('Welcome');
+        return 'Welcome';
+    }
+    function y() {
+        document.write('to');
+        return 'to';
+    }
+    function z() {
+        document.write('Geeksforgeeks');
+        return 'Geeksforgeeks';
+    }
+  
+    // Three expressions are 
+    // given at one place
+    var x = (x(), y(), z());
+  
+    document.write(x);
+
+18 > What is the advantage of a comma operator ?
+Ans >
+    The comma operator allows you to put multiple expressions in a place where one expression is expected. 
+    The resulting value of multiple expressions separate by a comma will be 
+    the value of the last comma separated expression.   
+
+19 > What are the different methods to find HTML elements in DOM ?
+Ans >
+    Finding HTML Elements
+    Often, with JavaScript, you want to manipulate HTML elements.
+    To do so, you have to find the elements first. There are several ways to do this:
+    Finding HTML elements by id
+    Finding HTML elements by tag name
+    Finding HTML elements by class name
+    Finding HTML elements by CSS selectors
+    Finding HTML elements by HTML object collections
+    The following HTML objects (and object collections) are also accessible:
+    document.anchors
+    document.body
+    document.documentElement
+    document.embeds
+    document.forms
+    document.head
+    document.images
+    document.links
+    document.scripts
+    document.title
+
+20 > What is V8 JavaScript engine ?
+Ans >
+    V8 is Google’s open source high-performance JavaScript and WebAssembly engine, written in C++. 
+    It is used in Chrome and in Node.js, among others.
+    V8 compiles and executes JavaScript source code, handles memory allocation for objects, 
+    and garbage collects objects it no longer needs. V8’s stop-the-world, generational, 
+    accurate garbage collector is one of the keys to V8’s performance.   
+    JavaScript is commonly used for client-side scripting in a browser, 
+    being used to manipulate Document Object Model (DOM) objects for example. 
+    The DOM is not, however, typically provided by the JavaScript engine but instead by a browser. 
+    The same is true of V8 — Google Chrome provides the DOM. 
+    V8 does however provide all the data types, operators, objects and functions specified in the ECMA standard.
+
+21 > Why do we call javascript as dynamic language ?
+Ans >
+    JavaScript is called a dynamic language because it doesn't just have a few dynamic aspects, 
+    pretty much everything is dynamic. All variables are dynamic (both in type and existance), 
+    and even the code is dynamic. 
+    You can create new variables at runtime, and the type of variables is determined at runtime.
+
+22 > What is a void operator ?
+Ans >
+    The void operator evaluates the given expression and then returns undefined.
+    void function test() {
+    console.log('boo!');
+    // expected output: "boo!"
+    }();
+
+    try {
+    test();
+    } catch (e) {
+    console.log(e);
+    // expected output: ReferenceError: test is not defined
+     }
+
+     This operator allows evaluating expressions that produce a value into 
+     places where an expression that evaluates to undefined is desired.
+
+     The void operator is often used merely to obtain the undefined primitive value, 
+     usually using "void(0)" (which is equivalent to "void 0"). 
+     In these cases, the global variable undefined can be used.
+     It should be noted that the precedence of the void operator should be taken into account and 
+     that parentheses can help clarify the resolution of the expression following the void operator:
+
+    void 2 == '2';   // (void 2) == '2', returns false
+    void (2 == '2'); // void (2 == '2'), returns undefined
+
+    When using an immediately-invoked function expression, void can be used to force the function 
+    keyword to be treated as an expression instead of a declaration.
+
+    void function iife() {
+    console.log("Executed!");
+    }();
+    // Output: "Executed!"
+     Executing the above function without the void keyword will result in an Uncaught SyntaxError.
+
+23 > What is the difference between internal and external javascript ?
+Ans >
+    Internal JavaScript : JavaScript code is placed in the head and body section of an HTML page.... 
+    External Javascript : JavaScript code are stored in separate external 
+    file using the . js extension (Ex: external. js).
+
+24 > What are the different ways to deal with Asynchronous Code ?
+Ans >
+    JavaScript provides three methods of handling asynchronous code: callbacks, 
+    which allow you to provide functions to call once the asynchronous method has finished running; promises, 
+    which allow you to chain methods together; and async/await keywords, 
+    which are just some syntactic sugar over promises.
+
+    Callbacks
+The original method of handling asynchronicity. Callbacks allow you to provide a function to be 
+executed after the asynchronous code has finished. In the example below, functionWithACallback 
+takes a function as an argument and will call that function when it is finished.
+This method, passing functions back and forth, can become very confusing if you need to 
+chain a number of these calls together. The callback will need to be passed down the 
+execution chain to be called at the end of the final process.
+
+const functionWithACallback = (callback) => {
+  //do some work then call the callback once done
+  console.log('You called this function!');
+  setTimeout(() => {
+    callback('I am done');
+  }, 1000)
+};
+const myFunction = () => {
+  // the function we want to call when the work is done
+  const myCallback = console.log
+  // this will call myCallback once it is finished 
+  functionWithACallback(myCallback);
+};
+myFunction();
+//  You called this function
+//  I am done
+
+Promises
+
+One of the main problems with callbacks is, when chaining a number of function calls together it can
+ become increasingly difficult to follow the flow of execution. Promises aim to solve this issue by 
+ allowing you to chain together promises using the .then() syntax. The example below works the 
+ same way as the callback example, but is much easier to follow: wait till getPromise() has 
+ completed and then call the function containing console.log()
+Error handling with promises is also less complex. Rather than calling the callback with an error 
+object, promises provide a .catch() wrapper to help manage error states. Below, the catch 
+block will be executed if an error occurs in any of the promises above it.
+
+const getPromise = () => Promise.resolve('My return value');
+const myFunction = () => {
+  getPromise()
+    .then(val => { 
+      console.log(val); // prints 'My return value'
+    }) // If there is an error in any of the above promises, catch
+       // it here
+    .catch(error => {   
+      console.error(error.message);
+    });
+}
+
+Async/Await
+In the more recent versions of JavaScript, the async and await keywords were added. 
+This provides a cleaner method of writing promises and gives the user more control over execution order. 
+The below example is identical to the promises example in functionality, but is written using 
+the async and await keywords.
+Error handling for async function calls is provided using a try/catch block.
+
+const getPromise = () => Promise.resolve('My return value');
+// the function is marked with the async keyword
+const myFunction = async () => {  
+  // tell the interpreter we want to wait on the response
+  try {
+    const val = await getPromise();
+    // execute when the promise above is resolved
+    console.log(val); // prints 'My return value'
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+
+
+>>>>>>>>>     Topic 2 : var,let,const & Variables      <<<<<<<<<    
+
+1 > What is the purpose of the let keyword ?
+Ans >
+    let allows you to declare variables that are limited to the scope of a block statement, 
+    or expression on which it is used, unlike the var keyword, which declares a variable globally, 
+    or locally to an entire function regardless of block scope.
+
+2 > What is the difference between let and var ? 
+Ans >
+    The main difference between let and var is that scope of a variable defined with 
+    let is limited to the block in which it is declared while variable declared with 
+    var has the global scope. So we can say that var is rather a keyword 
+    which defines a variable globally regardless of block scope.
+
+    The scope of let not only limited to the block in which it is defined but variable with 
+    let also do not get added with global window object even if it get declared outside of any block. 
+    But we can access variable with var from window object if it is defined globally.
+
+    Due to limited scope let variables are usually used when there is limited use of 
+    those variables such as in for loops, while loops or inside the scope of if conditions etc 
+    while var variable is used when value of variable need to be less change and used to accessed globally.
+
+    Also, one difference between var and let is variable with var can be redeclared to 
+    some other value while variable could not be redeclared if it is defined with let.
+
+3 > What is the reason to choose the name let as a keyword
+Ans >
+    Let is a mathematical statement that was adopted by early programming languages like Scheme and Basic. 
+    Variables are considered low level entities not suitable for higher levels of abstraction, 
+    thus the desire of many language designers to introduce similar but more powerful concepts 
+    like in Clojure, F#, Scala, where let might mean a value, or a variable that can be assigned, 
+    but not changed, which in turn lets the compiler catch more programming errors and optimize code better.
+
+    JavaScript has had var from the beginning, so they just needed another keyword, 
+    and just borrowed from dozens of other languages that use let already as a traditional 
+    keyword as close to var as possible, although in JavaScript let creates block scope local variable instead.
+
+4 > How do you redeclare variables in switch block without an error ?
+Ans >
+    You can still declare variables in switch statements, you just have to put curly brackets around 
+    the code after the case label.
+    Compare the two examples below. The first one generates an error. The second lets you compile and move on.
+
+    1. This generates a compile error:
+    switch (y)
+    {
+    case 0:
+        int x = 42;
+        cout << "I declared variable x." << end;
+        break;
+    case 1:
+        cout << "Variable x is still in scope!" << end;
+        break;
+    default:
+        break;
+    }
+
+    2. This compiles successfully:
+    switch (y)
+    {
+    case 0:
+    {
+        int x = 42;
+        cout << "I declared variable x." << end;
+    }
+    break;
+    case 1:
+    cout << "I don't know about variable x." << end;
+    break;
+    default:
+    break;
+    }
+
+5 > What are the differences between undeclared and undefined variables ?
+Ans >
+    Undefined: It occurs when a variable has been declared but has not been assigned with any value. 
+    Undefined is not a keyword.
+    Undeclared: It occurs when we try to access any variable that is not initialized or declared earlier 
+    using var or const keyword. If we use ‘typeof’ operator to get the value of an undeclared variable, 
+    we will face the runtime error with return value as “undefined”. The scope of the undeclared variables is 
+    always global.
+    For example:
+
+    Undefined:
+    var geek;
+    undefined
+    console.log(geek) 
+
+    Undeclared:
+    //ReferenceError: myVariable is not defined
+    console.log(myVariable)
+
+6 > What are global variables ?
+Ans > 
+    Global variables are declared outside of a function for accessibility throughout the program, 
+    while local variables are stored within a function using var for use only within that function's scope.
+
+7 > What are the problems with global variables ?
+Ans >
+    This is because global variables are easily overwritten by other scripts. 
+    Global Variables are not bad and not even a security concern, but it shouldn't overwrite 
+    values of another variable. On the usage of more global variables in our code, 
+    it may lead to a maintenance issue
+
+8 > What is NaN property ?
+Ans >
+In JavaScript, NaN stands for Not a Number. It represents a value which is not a valid number. 
+It can be used to check whether a number entered is a valid number or not a number
+
+9 > What are the benefits of keeping declarations at the top ?
+Ans >
+    Declare variables at the top of the function as a means of documenting all variables used in one place. 
+    It also avoids confusion resulting from someone imagining that a 
+    variable is block-scoped when it is in fact not, 
+    as in the following: var i=0; if (true) { var i=1; } 
+
+10 > What are the benefits of initializing variables ?
+Ans > 
+    Avoid resulting in "undefined"
+    Explicitly show what the variable is intended for i.e. let myArray = [];
+
+11 >  What is the precedence order between local and global  variables ?
+Ans >
+    Within the body of a function, a local variable takes precedence over a global variable with the same name.
+     If you declare a local variable or function parameter with the same name as a global variable, 
+     you effectively hide the global variable.
+
+12 > Can I redeclare let and const variables ?
+Ans >
+    Constants are block-scoped, much like variables declared using the let keyword. 
+    The value of a constant can't be changed through reassignment, and it can't be redeclared.
+
+13 > Is const variable makes the value immutable ?
+Ans > 
+    Using const only means that the variable will always have a reference to the same object or primitive value, 
+    because that reference can’t change. 
+    The reference itself is immutable, but the value held by the variable does not become immutable.
+
+    const people = ['Tesla', 'Musk']
+    people.push('Berners-Lee')
+    console.log(people)
+    // <- ['Tesla', 'Musk', 'Berners-Lee']
+
+
+>>>>>>>>>>>  Topic 3 : Scope Chain, Scoping  <<<<<<<<<<<<
+
+1 >  What is scope in javascript ?
+Ans >
+    The current context of execution. The context in which values and expressions are "visible" or can be referenced. 
+    If a variable or other expression is not "in the current scope," then it is unavailable for use. 
+    Scopes can also be layered in a hierarchy, so that child scopes have access to parent scopes, but not vice versa.
+
+    A function serves as a closure in JavaScript, and thus creates a scope, 
+    so that (for example) a variable defined exclusively within the function cannot be 
+    accessed from outside the function or within other functions. For instance, the following is invalid:
+
+    function exampleFunction() {
+    var x = "declared inside function";  // x can only be used in exampleFunction
+    console.log("Inside function");
+    console.log(x);
+    }
+    console.log(x);  // Causes error
+
+    Block scope
+    var is not block scoped
+    Function scope
+    Module scope >
+                  ES2015 module also creates a scope for variables, functions, classes.
+                  The module circle defines a constant pi (for some internal usage):
+                  // "circle" module scope
+                  const pi = 3.14159;
+                  console.log(pi); // 3.14159
+                  // Usage of pi
+                  pi variable is declared within the scope of circle module. Also, 
+                  the variable pi is not exported from the module.
+                  Then the circle module is imported:
+                  import './circle';
+                  console.log(pi); // throws ReferenceError
+    Scopes can be nested
+    Global scope
+    Lexical scope
+    Variables isolation
+
+
+>>>>>>>>>>>  Topic 4 : String Manipulation  <<<<<<<<<<<<
+
+1 > How do you make first let er of the string in an uppercase ?
+Ans >
+    function capitalizeFirstLetter(str) {
+    const capitalized = str.charAt(0).toUpperCase() + str.slice(1);
+    return capitalized;
+    }
+   // take input
+   const string = prompt('Enter a string: ');
+   const result = capitalizeFirstLetter(string);
+   console.log(result);
+
+2 > How do you trim a string in javascript ?
+Ans > 
+    The string.trim() function returns the string after removing whitespace character 
+    from that string from the beginning and end of the string.
+
+    function func_trim() {   
+     //original string with whitespace in beginning and end  
+    var str = "     javatpoint tutorial website     ";   
+  
+    //string trimmed using trim()  
+    var trimmedstr = str.trim();   
+    document.write(trimmedstr);    
+   }   
+   func_trim();
+
+3 > How do you trim a string at the beginning or ending
+Ans >
+   String result = str.trim();
+   The trim() method will remove both leading and trailing whitespace from a string and return the result. 
+   The original string will remain unchanged. If there is no leading or trailing whitespace to be removed, 
+   the original string is returned. Both spaces and tab characters will be removed.
+
+   This is very useful when comparing user input with existing data. 
+   A programmer often racks his brain for hours trying to figure out why what he enters 
+   is not the same as a stored string, only to find out that the difference is only a trailing space. 
+   Trimming data prior to comparison will eliminate this problem.
+
+4 > How do you check whether a string contains a substring ?
+Ans >
+    three ways in which you can check if a string contains a substring in JavaScript: 
+    using includes(), indexOf(), and regex. The includes() method is arguably 
+    the most common way of checking if a string contains a substring. 
+    This is because the name of the method is literal
+    
+    using includes()
+    let example = "Example String!";
+    let ourSubstring = "Example";
+
+    if (example.includes(ourSubstring)) {
+	console.log("The word Example is in the string.");
+    } else {
+	console.log("The word Example is not in the string.");
+    }
+
+    using indexOf()
+    let example = "Example String!";
+    let ourSubstring = "Example";
+
+    if (example.indexOf(ourSubstring) != 0) {
+	console.log("The word Example is in the string.");
+    } else {
+	console.log("The word Example is not in the string.");
+    }
+
+    We can use the RegExp.test() method to check whether a string contains a substring. 
+    Here’s an example:
+    let str = "Example String!";
+    /Example/.test(str);
+    Our code returns true.
+
+
+>>>>>>>>>>>  Topic 5 : Strict Mode  <<<<<<<<<<<<
+
+1 > What is a strict mode in javascript ?
+Ans >
+    JavaScript's strict mode, introduced in ECMAScript 5, 
+    is a way to opt in to a restricted variant of JavaScript, 
+    thereby implicitly opting-out of "sloppy mode". ... Strict mode makes several 
+    changes to normal JavaScript semantics: Eliminates some 
+    JavaScript silent errors by changing them to throw errors.
+
+2 > Why do you need strict mode ?
+Ans >
+    Strict mode makes several changes to JavaScript semantics. 
+    It eliminates silent errors and instead throws them so that 
+    the code won't run with errors in the code. It will also point out mistakes 
+    that prevent JavaScript engines from doing optimizations.
+
+3 > How do you declare strict mode ?
+Ans >
+    The JavaScript strict mode is a feature in ECMAScript 5. 
+    You can enable the strict mode by declaring this in the top of your script/function. 
+    'use strict'; When a JavaScript engine sees this directive, 
+    it will start to interpret the code in a special mode.
+
+>>>>>>>>>>>  Topic 6 : Array methods  <<<<<<<<<<<<
+
+     JavaScript Array Methods
+
+1. map( )
+This method creates a new array with the results of calling a provided function on every element in this array.
+
+2. filter( )
+This method creates a new array with only elements that passes the condition inside the provided function.
+
+3. sort( )
+This method is used to arrange/sort array’s elements either in ascending or descending order.
+
+4. forEach( )
+This method helps to loop over array by executing a provided callback function for each element in an array.
+
+5. concat( )
+This method is used to merge two or more arrays and returns a new array, without changing the existing arrays.
+
+6. every( )
+This method checks every element in the array that passes the condition, returning true or false as appropriate.
+
+7. some( )
+This method checks if at least one element in the array that passes the condition, returning true or false as appropriate.
+
+8. includes( )
+This method checks if an array includes the element that passes the condition, returning true or false as appropriate.
+
+9. join( )
+This method returns a new string by concatenating all of the array’s elements separated by the specified separator.
+
+10. reduce( )
+This method applies a function against an accumulator and each element in the array to reduce it to a single value.
+
+11. find( )
+This method returns the value of the first element in an array that pass the test in a testing function.
+
+12. findIndex( )
+This method returns the index of the first element in an array that pass the test in a testing function.
+
+13. indexOf( )
+This method returns the index of the first occurrence of the specified element in the array, or -1 if it is not found.
+
+14. fill( )
+This method fills the elements in an array with a static value and returns the modified array.
+
+15. slice( )
+This method returns a new array with specified start to end elements.
+
+16. reverse( )
+This method reverses an array in place. Element at last index will be first and element at 0 index will be last.
+
+17. push( )
+This method adds one or more elements to the end of array and returns the new length of the array.
+
+18. pop( )
+This method removes the last element from the end of array and returns that element.
+
+19. shift( )
+This method removes the first element from an array and returns that element.
+
+20. unshift( )
+This method adds one or more elements to the beginning of an array and returns the new length of the array.
+
+
+>>>>>>>>>>>  Topic 7 : Null vs undefined  <<<<<<<<<<<<
+
+1 >  What is undefined property ?
+Ans >
+    undefined is a property of the global object. That is, it is a variable in global scope. ... 
+    A variable that has not been assigned a value is of type undefined . 
+    A method or statement also returns undefined if the variable that is 
+    being evaluated does not have an assigned value
+
+2 > What is null value ?
+Ans >
+    JavaScript null is a primitive type that contains a special value null . 
+    JavaScript uses the null value to represent the intentional absence of any object value. 
+    If you find a variable or a function that returns null , 
+    it means that the expected object couldn't be created
+
+3 >  What is the dif erence between null and undefined ?
+Ans >
+    null is an assigned value. It means nothing.
+    undefined means a variable has been declared but not defined yet.
+    null is an object. undefined is of type undefined.
+    null !== undefined but null == undefined.
+
+
+>>>>>>>>>>  What is a Decorator? <<<<<<<<
+In its simplest form, a decorator is simply a way of wrapping one piece of code with another — literally “decorating” it. This is a concept you might well have heard of previously as functional composition, or higher-order functions.
+
+This is already possible in standard JavaScript for many use cases, simply by calling on one function to wrap another:
+
+function doSomething(name) {
+  console.log('Hello, ' + name);
+}
+
+function loggingDecorator(wrapped) {
+  return function() {
+    console.log('Starting');
+    const result = wrapped.apply(this, arguments);
+    console.log('Finished');
+    return result;
+  }
+}
+
+const wrapped = loggingDecorator(doSomething);
+This example produces a new function — in the variable wrapped — that can be called exactly the same way as the doSomething function, and will do exactly the same thing. The difference is that it will do some logging before and after the wrapped function is called:
+
+doSomething('Graham');
+// Hello, Graham
+
+wrapped('Graham');
+// Starting
+// Hello, Graham
+// Finished
+
+>>>>>>>>  Event Loop, Queue ,Callstack, heap, event table <<<<<<<<<
+
+Stack: This is where all your javascript code gets pushed and executed one by one as the 
+interpreter reads your program, and gets popped out once the execution is done. 
+If your statement is asynchronous: setTimeout, ajax(), promise, or click event, 
+then that code gets forwarded to Event table, this table is responsible for moving 
+your asynchronous code to callback/event queue after specified time.
+
+Heap: This is where all the memory allocation happens for your variables, 
+that you have defined in your program.
+
+Callback Queue: This is where your asynchronous code gets pushed to, and waits for the execution.
+
+Event Loop: Then comes the Event Loop, which keeps running continuously and checks the Main stack, 
+if it has any frames to execute, if not then it checks Callback queue, if Callback queue has codes to 
+execute then it pops the message from it to the Main Stack for the execution.
+
+Job Queue: Apart from Callback Queue, browsers have introduced one more queue which is “Job Queue”, 
+reserved only for new Promise() functionality. So when you use promises in your code, 
+you add .then() method, which is a callback method. These `thenable` methods are added 
+to Job Queue once the promise has returned/resolved, and then gets executed.
+
+Quick Question now: Check these statements for example, can you predict the sequence of output?:
+console.log('Message no. 1: Sync');
+setTimeout(function() {
+   console.log('Message no. 2: setTimeout');
+}, 0);
+var promise = new Promise(function(resolve, reject) {
+   resolve();
+});
+promise.then(function(resolve) {
+   console.log('Message no. 3: 1st Promise');
+})
+.then(function(resolve) {
+   console.log('Message no. 4: 2nd Promise');
+});
+console.log('Message no. 5: Sync');
+
+
+>>>>>>>>>>>  Topic 10 : Cookies, Session, Local Storage  <<<<<<<<<<<<
+
+1 >  What is a cookie ?
+Ans >
+    A cookie is an amount of information that persists between a server-side and a client-side. 
+    A web browser stores this information at the time of browsing.
+
+A cookie contains the information as a string generally in the form of a 
+name-value pair separated by semi-colons. It maintains the state of a user and remembers 
+the user's information among all the web pages.
+
+2 >  Why do you need a Cookie ?
+Ans >
+    Web Pages are state less and cookies are used to store information like your password, 
+    usernames! When we select the check-box 'remember me' while login then cookie gets stored into your machine! 
+    So when you browse the same page next time, 
+    you dont need to login and it automatically takes you to the homepage.
+
+3 > How do you delete a cookie ?
+Ans >
+    To delete a cookie, you just need to set the value of the cookie to empty and set the 
+    value of expires to a passed date.
+
+    document.cookie = "cookiename= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+
+4 > Why do you need web storage ?
+Ans >
+    With web storage, web applications can store data locally within the user's browser. Before HTML5, 
+    application data had to be stored in cookies, included in every server request. 
+    Web storage is more secure, and large amounts of data can be stored locally, 
+    without affecting website performance.
+
+
+>>>>>>>>>>>  Topic 11 : Async await  <<<<<<<<<<<<
+
+Async/Await
+In the more recent versions of JavaScript, the async and await keywords were added. 
+This provides a cleaner method of writing promises and gives the user more control over execution order. 
+The below example is identical to the promises example in functionality, but is written using 
+the async and await keywords.
+Error handling for async function calls is provided using a try/catch block.
+
+const getPromise = () => Promise.resolve('My return value');
+// the function is marked with the async keyword
+const myFunction = async () => {  
+  // tell the interpreter we want to wait on the response
+  try {
+    const val = await getPromise();
+    // execute when the promise above is resolved
+    console.log(val); // prints 'My return value'
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+
+
+>>>>>>>>>>>  Topic 12 : SetTimeout, SetInterval  <<<<<<<<<<<<
+
+1 > What is the use of setTimeout ?
+Ans >
+    setTimeout() Execute a specified block of code once after a specified time has elapsed.
+
+    function greet() {
+    alert('Welcome!');
+    }
+    setTimeout(greet, 2000); 
+    //execute greet after 2000 milliseconds (2 seconds) 
+
+    let myGreeting = setTimeout(sayHi, 2000, 'Mr. Universe');
+    Clearing timeouts
+     Finally, if a timeout has been created, you can cancel it before the specified time has 
+     elapsed by calling clearTimeout(), passing it the identifier of the setTimeout() call as a parameter. 
+     So to cancel our above timeout, you'd do this:
+
+clearTimeout(myGreeting);
+
+2 > What is the use of setInterval ?
+    setInterval() Execute a specified block of code repeatedly with a fixed time 
+    delay between each call
+
+    function displayTime() {
+     let date = new Date();
+     let time = date.toLocaleTimeString();
+     document.getElementById('demo').textContent = time;
+    }
+    const createClock = setInterval(displayTime, 1000);
+
+    setInterval() keeps running a task forever, unless you do something about it. 
+    You'll probably want a way to stop such tasks, otherwise you may end up getting errors 
+    when the browser can't complete any further versions of the task, or if the animation 
+    being handled by the task has finished. You can do this the same way you stop 
+    timeouts — by passing the identifier returned by the setInterval() call to the clearInterval()
+
+    const myInterval = setInterval(myFunction, 2000);
+    clearInterval(myInterval);
+
+
+>>>>>>>>>>>  Topic 13 : Generators  <<<<<<<<<<<<
+
+In JavaScript, generators provide a new way to work with functions and iterators.
+Using a generator,
+you can stop the execution of a function from anywhere inside the function
+and continue executing code from a halted position
+Note: The generator function is denoted by *. You can either use function* generatorFunc() {...} or 
+function *generatorFunc(){...} to create them.
+
+As mentioned above, you can pause the execution of a generator function without executing 
+the whole function body. For that, we use the yield keyword. 
+For example,
+
+// generator function
+function* generatorFunc() {
+
+    console.log("1. code before the first yield");
+    yield 100;
+    
+   console.log("2. code before the second yield");
+    yield 200;
+}
+
+// returns generator object
+const generator = generatorFunc();
+
+console.log(generator.next());
+
+Output
+1. code before the first yield
+{value: 100, done: false}
+
+
+
+>>>>>>>>>>>  Topic 14 : Currying  <<<<<<<<<<<<
+
+  Currying
+
+Currying is an advanced technique of working with functions. It’s used not only in JavaScript, but in other languages as well.
+
+Currying is a transformation of functions that translates a function from callable as f(a, b, c) into callable as f(a)(b)(c).
+
+Currying doesn’t call a function. It just transforms it.
+
+Let’s see an example first, to better understand what we’re talking about, and then practical applications.
+
+We’ll create a helper function curry(f) that performs currying for a two-argument f. In other words, curry(f) for two-argument f(a, b) translates it into a function that runs as f(a)(b):
+
+function curry(f) { // curry(f) does the currying transform
+  return function(a) {
+    return function(b) {
+      return f(a, b);
+    };
+  };
+}
+
+// usage
+function sum(a, b) {
+  return a + b;
+}
+
+let curriedSum = curry(sum);
+
+alert( curriedSum(1)(2) ); // 3
+As you can see, the implementation is straightforward: it’s just two wrappers.
+
+The result of curry(func) is a wrapper function(a).
+When it is called like curriedSum(1), the argument is saved in the Lexical Environment, and a new wrapper is returned function(b).
+Then this wrapper is called with 2 as an argument, and it passes the call to the original sum.
+More advanced implementations of currying, such as _.curry from lodash library, return a wrapper that allows a function to be called both normally and partially:
+
+function sum(a, b) {
+  return a + b;
+}
+
+let curriedSum = _.curry(sum); // using _.curry from lodash library
+
+alert( curriedSum(1, 2) ); // 3, still callable normally
+alert( curriedSum(1)(2) ); // 3, called partially
+
+
+Currying? What for?
+To understand the benefits we need a worthy real-life example.
+
+For instance, we have the logging function log(date, importance, message) that formats and outputs the information. In real projects such functions have many useful features like sending logs over the network, here we’ll just use alert:
+
+function log(date, importance, message) {
+  alert(`[${date.getHours()}:${date.getMinutes()}] [${importance}] ${message}`);
+}
+Let’s curry it!
+
+log = _.curry(log);
+After that log works normally:
+
+log(new Date(), "DEBUG", "some debug"); // log(a, b, c)
+…But also works in the curried form:
+
+log(new Date())("DEBUG")("some debug"); // log(a)(b)(c)
+
+
+
+
+>>>>>>>>>>>  Topic 15 : Regex  <<<<<<<<<<<<
+
+Regular expressions are patterns used to match character combinations in strings. 
+In JavaScript, regular expressions are also objects. These patterns are used with the exec() and 
+test() methods of RegExp, and with the match(), matchAll(), replace(), replaceAll(), 
+search(), and split() methods of String.
+
+Using a regular expression literal, which consists of a pattern enclosed between slashes, 
+as follows:
+  let re = /ab+c/;
+
+Or calling the constructor function of the RegExp object, as follows:
+  let re = new RegExp('ab+c');
+
+
+If escape strings are not already part of your pattern you can add them using String.replace:
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+}
+
+>>>>>>>>>>>  Topic 16 : Objects & Oops  <<<<<<<<<<<<
+
+1 > What are the possible ways to create objects in JavaScript ?
+Ans >
+    In JavaScript, there are four methods to use to create an object:
+Object Literals.
+var car = {
+    model: 'bmw',
+    color: 'red',
+    price: 2000
+}
+console.log(JSON.stringify(car));
+car.type = 'manual'; // dynamic property  console.log(JSON.stringify(car));
+
+New operator or constructor.
+function Car(model, color) {
+    this.model = model;
+    this.color = color;
+}
+
+var c1 = new Car('BMW', 'red');
+console.log(c1.model);
+
+Object. create method.
+var ElectricCar = Object.create(Car, {
+    type: {
+        value: 'Electric',
+        writable: true,
+        configurable: false,
+        enumerable: true
+    }
+});
+console.log(ElectricCar.type); // Electric
+
+Class.
+class Car {
+
+    constructor(maker, price) {
+        this.maker = maker;
+        this.price = price;
+    }
+
+    getInfo() {
+        console.log(this.maker + " costs : " + this.price);
+    }
+}
+
+var car1 = new Car("BMW", 100);
+car1.getInfo();
+var car2 = new Car("Audi", 150);
+car2.getInfo();
+
+2 > What is the purpose of delete operator ?
+Ans >
+    The JavaScript delete operator removes a property from an object; 
+    if no more references to the same property are held, it is eventually released automatically.
+    const Employee = {
+  firstname: 'John',
+  lastname: 'Doe'
+};
+
+console.log(Employee.firstname);
+// expected output: "John"
+
+delete Employee.firstname;
+
+console.log(Employee.firstname);
+// expected output: undefined
+
+
+3 > How do you loop through or enumerate javascript object ?
+Ans >
+    You can use the for-in loop as shown by others. However, you also have to make sure that the key you get is an actual property of an object, and doesn't come from the prototype.
+
+
+var p = {
+    "p1": "value1",
+    "p2": "value2",
+    "p3": "value3"
+};
+
+for (var key in p) {
+    if (p.hasOwnProperty(key)) {
+        console.log(key + " -> " + p[key]);
+    }
+}
+
+
+4 > How do you test for an empty object ?
+Ans >
+    Looping through the object using object.hasOwnProperty(key): 
+    A function is created where the object is looped over and checked if it contains the ‘key’ 
+    property using the object.hasOwnProperty() method. This function would return true if it 
+    could find no keys in the loop, which means that the object is empty. If any key is encountered, 
+    the loop breaks and false is returned. This method also works for older browsers that may not 
+    support the first method.
+
+    function isEmptyObj(object) {
+    for (var key in object) {
+        if (object.hasOwnProperty(key)) {
+            return false;
+        }
+    }
+}
+
+5 > How do you add a key value pair in javascript ?
+Ans >
+ program to add a key/value pair to an object
+
+const person = {
+    name: 'Monica',
+    age: 22,
+    gender: 'female'
+}
+
+// add a key/value pair
+person.height = 5.4;
+
+console.log(person);
+
+6 > What are the different ways to access object properties ?
+Ans >
+    You can access the properties of an object in JavaScript in 3 ways:
+
+Dot property accessor: object.property
+const hero = {
+  name: 'Batman'
+};
+
+// Dot property accessor
+hero.name; // => 'Batman'
+
+Square brackets property access: object['property']
+const property = 'name';
+const hero = {
+  name: 'Batman'
+};
+
+// Square brackets property accessor:
+hero['name'];   // => 'Batman'
+hero[property]; // => 'Batman'
+
+
+Object destructuring: const { property } = object
+const hero = {
+  name: 'Batman'
+};
+
+// Object destructuring:
+const { name } = hero;
+name; // => 'Batman'

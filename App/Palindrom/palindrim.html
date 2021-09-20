@@ -81,9 +81,16 @@
         let value = InputTask.value;
          let arr = value.split("")
         let revstr =  arr.reverse().join("");
-       // console.log(revstr)
+        console.log()
+        if(value==revstr){
+          newtask.innerText = `"${revstr}" Is a Palindrome String..`;
+        }
+        else{
+          newtask.innerText = `"${revstr}" Is Not a Palindrome String..`;
+        }
+       
 
-      newtask.innerText = revstr;
+      
       YourTask.appendChild(newtask);
     });
   </script>
