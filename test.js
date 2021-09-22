@@ -54,3 +54,27 @@
 //          })(); 
 //          console.log(x);
 //         })();
+// function outrtest()
+// {function outer(b){
+    
+//     function inner(){
+//         console.log(a,b);
+//     }
+//     let a =10;
+//     return inner;
+// }
+
+
+
+// outer("Rajdeep")();
+// }
+// closeer has many advanteges data hiding 
+
+
+// let add = function(a,b){
+//     console.log(a*b);
+// }
+
+// let fnc_curry = add.bind(this,5);
+// fnc_curry(4);
+
